@@ -16,7 +16,7 @@
         android:theme="@style/Theme.CurrencyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".CurrencyDetailActivity"
+            android:name=".View.CurrencyDetailActivity"
             android:exported="false" />
         <activity
             android:name=".View.MetalsActivity"

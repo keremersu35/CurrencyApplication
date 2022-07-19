@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.icu.util.Currency;
 import android.os.Bundle;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -37,6 +38,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+/*
+        @Override
+        public boolean onCreateOptionsMenu(Menu menu) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.game_menu, menu);
+            return true;
+        }
 
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            // Handle item selection
+            switch (item.getItemId()) {
+                case R.id.new_game:
+                    newGame();
+                    return true;
+                case R.id.help:
+                    showHelp();
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
+            }
+        }*/
     }
 }
