@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class GoldModel{
     public boolean success;
-    public ArrayList<GoldResult> Goldresults;
+    public ArrayList<GoldResult> result;
 
     public ArrayList<GoldResult> getGoldresults() {
-        return Goldresults;
+        return result;
     }
 }

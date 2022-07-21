@@ -4,40 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_white"
     tools:context=".View.CurrencyDetailActivity">
-
-    <Button
-        android:id="@+id/increaseButton"
-        android:layout_width="51dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="182dp"
-        android:text="+"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/numberOfProduct"
-        app:layout_constraintTop_toBottomOf="@+id/currencyPerPrice"
-        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/currencyNameText"
         android:layout_width="291dp"
         android:layout_height="49dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="110dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="10dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/currencyPerPrice"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.294" />
 
     <TextView
         android:id="@+id/currencyPerPrice"
@@ -46,7 +32,7 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="60dp"
-        android:layout_marginBottom="493dp"
+        android:layout_marginBottom="432dp"
         android:text="TextView"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -55,28 +41,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currencyNameText" />
-
-    <Button
-        android:id="@+id/decreaseButton"
-        android:layout_width="51dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="182dp"
-        android:layout_marginEnd="10dp"
-        android:text="-"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/numberOfProduct"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currencyPerPrice"
+        app:layout_constraintTop_toBottomOf="@+id/currencyNameText"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/numberOfProduct"
         android:layout_width="58dp"
         android:layout_height="41dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginBottom="304dp"
         android:text="0"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -87,21 +59,23 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/currencyPerPrice"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.909" />
 
     <Button
-        android:id="@+id/addToBasketButton"
-        android:layout_width="176dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginEnd="115dp"
-        android:text="Add to Basket"
+        android:id="@+id/decreaseButton"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="304dp"
+        android:background="@color/card_1"
+        android:text="-"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintEnd_toStartOf="@+id/numberOfProduct"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastPrice"
-        app:layout_constraintVertical_bias="0.118" />
+        app:layout_constraintTop_toBottomOf="@+id/currencyPerPrice" />
 
     <TextView
         android:id="@+id/lastPrice"
@@ -109,7 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="115dp"
         android:layout_marginEnd="114dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginBottom="150dp"
         android:text=""
         android:textAlignment="center"
         android:textColor="#000000"
@@ -119,5 +93,50 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numberOfProduct"
-        app:layout_constraintVertical_bias="0.833" />
+        app:layout_constraintVertical_bias="0.291" />
+
+    <Button
+        android:id="@+id/increaseButton"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="304dp"
+        android:background="@color/card_1"
+        android:text="+"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/numberOfProduct"
+        app:layout_constraintTop_toBottomOf="@+id/currencyPerPrice" />
+
+    <Button
+        android:id="@+id/addToBasketButton"
+        android:layout_width="176dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginEnd="115dp"
+        android:background="@color/card_1"
+        android:text="Add to Basket"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastPrice"
+        app:layout_constraintVertical_bias="0.384" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="196dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/currencyNameText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/currencies" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

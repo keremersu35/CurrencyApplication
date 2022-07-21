@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CurrencyApplication</string>
+    <string name="textview" />
+    <string name="currency_text">Currencies</string>
+    <string name="gold_text">Gold</string>
+    <string name="cart_text">Cart</string>
+    <string name="past_orders_text">Past Orders</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

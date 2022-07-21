@@ -3,13 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/item_selector.xml" value="0.117" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/menu.xml" value="0.3385" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round.xml" value="0.201" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round_corner.xml" value="0.117" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_cart.xml" value="0.2554347826086957" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_currency_detail.xml" value="0.2554347826086957" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_currency_list.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_currency_list2.xml" value="0.17147922998986828" />
-        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_main.xml" value="0.67" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_metals.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/currency_recycler_row.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/cart_row.xml" value="0.365625" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/currency_recycler_row.xml" value="0.33" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/fragment_cart.xml" value="0.5" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/fragment_currency.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/fragment_gold.xml" value="0.2545289855072464" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/fragment_past_orders.xml" value="0.2545289855072464" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/navigation_bar.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/menu/menu.xml" value="0.365625" />
       </map>
     </option>
   </component>

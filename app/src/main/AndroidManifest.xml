@@ -16,13 +16,10 @@
         android:theme="@style/Theme.CurrencyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".View.CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".View.CurrencyDetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".View.MetalsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".View.CurrencyListActivity"
             android:exported="false" />
         <activity
             android:name=".View.MainActivity"

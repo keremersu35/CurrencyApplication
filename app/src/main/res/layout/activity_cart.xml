@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".View.MetalsActivity">
+    tools:context=".View.CartActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/metalsRecyclerView"
+        android:id="@+id/cartRecyclerView"
         android:layout_width="409dp"
         android:layout_height="729dp"
         android:layout_marginStart="1dp"

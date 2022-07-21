@@ -10,20 +10,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.currencyapplication.Model.Currency;
+import com.example.currencyapplication.Model.GoldResult;
 import com.example.currencyapplication.R;
 import com.example.currencyapplication.View.CurrencyDetailActivity;
-import com.orhanobut.hawk.Hawk;
 
 import java.util.ArrayList;
 
-public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHolder> {
+public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
 
+    private ArrayList<GoldResult> goldList;
     Context context;
-    private ArrayList<Currency> currencyList;
 
-    public CurrencyAdapter(Context context, ArrayList<Currency> currencyList) {
-        this.currencyList = currencyList;
+    public GoldAdapter(Context context, ArrayList<GoldResult> goldList) {
+        this.goldList = goldList;
         this.context = context;
     }
 
@@ -31,25 +30,23 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.currency_recycler_row,parent,false);
-        return new ViewHolder(v);
+        return new GoldAdapter.ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        Hawk.init(context).build();
-        Currency currency = currencyList.get(position);
-        holder.currencyName.setText(currency.name);
-        String formattedString = String.format("%.2f", 1/currency.rate);
-        holder.currencyPrice.setText(formattedString+" TL");
-        holder.currencyCode.setText(currency.code);
+        GoldResult gold = goldList.get(position);
+        holder.goldName.setText(gold.name);
+        String formattedString = String.format("%.1f",gold.selling);
+        holder.goldPrice.setText(formattedString+" TL");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CurrencyDetailActivity.class);
-                intent.putExtra("name", currency.name);
-                intent.putExtra("price", formattedString);
+                intent.putExtra("name", gold.name);
+                intent.putExtra("price", Double.toString(gold.selling));
                 view.getContext().startActivity(intent);
             }
         });
@@ -57,17 +54,17 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return currencyList.size();
+        return goldList.size();
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView currencyName,currencyPrice, currencyCode;
+        TextView goldName,goldPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            currencyName = itemView.findViewById(R.id.cartItemName);
-            currencyPrice = itemView.findViewById(R.id.cartItemPrice);
-            currencyCode = itemView.findViewById(R.id.cartItemNumber);
+            goldName = itemView.findViewById(R.id.cartItemName);
+            goldPrice = itemView.findViewById(R.id.cartItemPrice);
         }
     }
 }
