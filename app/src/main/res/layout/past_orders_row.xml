@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/margin"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,16 +11,6 @@
     android:elevation="25dp"
     android:background="@drawable/round"
     android:orientation="horizontal">
-
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/exchange"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginEnd="25dp"
-        />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -30,30 +22,52 @@
 
         <TextView
             android:id="@+id/pastOrderName"
-            android:layout_width="200dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
+            android:layout_marginStart="15dp"
             android:gravity="top"
-            android:textColor="@color/black"
+            android:textColor="@color/light_white"
             android:textSize="18sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/pastOrderNumber"
-            android:layout_width="200dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:gravity="bottom"
-            android:textColor="@color/black" />
+            android:textColor="@color/light_white" />
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/cartItemPrice"
-        android:layout_width="81dp"
-        android:layout_height="46dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:textColor="@color/black" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/pastOrderDate"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="top"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/light_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/pastOrderPrice"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:gravity="bottom"
+            android:textColor="@color/light_white" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="70dp"
+        android:background="#F5F9FC"
         android:clipToPadding="false"/>
 
 </FrameLayout>

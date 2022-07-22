@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
 
                 case R.id.nav_past:
-                    fragment = new PastOrdersFragment();
+                    fragment = new PastOrdersFragment(context);
                     break;
             }
             if(fragment != null){

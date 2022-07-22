@@ -63,7 +63,7 @@ public class GoldAdapter extends RecyclerView.Adapter<GoldAdapter.ViewHolder> {
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            goldName = itemView.findViewById(R.id.cartItemName);
+            goldName = itemView.findViewById(R.id.pastOrderName);
             goldPrice = itemView.findViewById(R.id.cartItemPrice);
         }
     }

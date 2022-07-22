@@ -1,5 +1,6 @@
 package com.example.currencyapplication.View;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -37,8 +38,9 @@ public class CurrencyFragment extends Fragment {
     Retrofit retrofit;
     ArrayList<Currency> results;
     CurrencyAdapter CurrencyAdapter;
-    String key = "apikey 3RXWhHhHK88p0hUi8qdzmt:40eAyTE7llB2cGpaistSC6";
+    String key = "apikey 5rn7OrvIN4NqzEjhCXS7AJ:56e1ggL1gpKLjhg6zZW7Xq";
     Context context;
+    ProgressDialog p;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,20 +63,25 @@ public class CurrencyFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
+        p = new ProgressDialog(getActivity());
+        p.setMessage("Fetching Data...");
+        p.setCancelable(false);
+
         ApiInterface client = retrofit.create(ApiInterface.class);
         Call<CurrencyMain> callResponse = client.getCurrency("application/json",key);
+        p.show();
         callResponse.enqueue(new Callback<CurrencyMain>() {
             @Override
             public void onResponse(Call<CurrencyMain> call, retrofit2.Response<CurrencyMain> response) {
+                p.dismiss();
                 if(response.body() != null) {
                     results = new ArrayList<>();
                     for (int i = 0; i < response.body().result.getData().size(); i++) {
                         results.add(response.body().result.getData().get(i));
-                        System.out.println("kerem"+response.body().result.getData().get(i).name);
                     }
                     handleResponse(context,results);
                 }else{
-                    Toast.makeText(context,"Apide Sorun Var",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"There is problem with API",Toast.LENGTH_SHORT).show();
                 }
             }
             @Override

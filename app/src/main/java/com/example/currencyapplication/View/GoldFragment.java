@@ -1,5 +1,6 @@
 package com.example.currencyapplication.View;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -40,8 +41,9 @@ public class GoldFragment extends Fragment {
     ArrayList<GoldResult> goldList;
     RecyclerView goldRecyclerView;
     GoldAdapter goldAdapter;
-    String key = "apikey 3RXWhHhHK88p0hUi8qdzmt:40eAyTE7llB2cGpaistSC6";
+    String key = "apikey 5rn7OrvIN4NqzEjhCXS7AJ:56e1ggL1gpKLjhg6zZW7Xq";
     Context context;
+    ProgressDialog p;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,11 +66,17 @@ public class GoldFragment extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
+        p = new ProgressDialog(getActivity());
+        p.setMessage("Fetching Data...");
+        p.setCancelable(false);
+
         ApiInterface client = retrofit.create(ApiInterface.class);
         Call<GoldModel> callResponse = client.getGold("application/json", key);
+        p.show();
         callResponse.enqueue(new Callback<GoldModel>() {
             @Override
             public void onResponse(Call<GoldModel> call, retrofit2.Response<GoldModel> response) {
+                p.dismiss();
                 if(response.isSuccessful()){
                     goldList = new ArrayList<>();
                     for (int i = 0; i < response.body().result.size(); i++) {

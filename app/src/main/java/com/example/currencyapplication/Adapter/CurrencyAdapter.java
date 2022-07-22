@@ -65,9 +65,9 @@ public class CurrencyAdapter extends RecyclerView.Adapter<CurrencyAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            currencyName = itemView.findViewById(R.id.cartItemName);
+            currencyName = itemView.findViewById(R.id.pastOrderName);
             currencyPrice = itemView.findViewById(R.id.cartItemPrice);
-            currencyCode = itemView.findViewById(R.id.cartItemNumber);
+            currencyCode = itemView.findViewById(R.id.pastOrderNumber);
         }
     }
 }

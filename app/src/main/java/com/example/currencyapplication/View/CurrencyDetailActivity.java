@@ -77,6 +77,7 @@ public class CurrencyDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Toast.makeText(getApplicationContext(),"Product has added to basket",Toast.LENGTH_SHORT).show();
                 if(number == 0){
                     Toast.makeText(getApplicationContext(),"Please increase amount of product",Toast.LENGTH_SHORT).show();
                     return;

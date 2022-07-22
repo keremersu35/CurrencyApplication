@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "923037256623",
+    "project_id": "currencyapplica",
+    "storage_bucket": "currencyapplica.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923037256623:android:9031dac592bf28cdb5fd5a",
+        "android_client_info": {
+          "package_name": "com.example.currencyapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923037256623-m1vdq5qlc4laj77g694phfgap2m0fa7c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlOZV8f7IwxInBn9KMPeW4LzmocCwkpis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923037256623-m1vdq5qlc4laj77g694phfgap2m0fa7c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
