@@ -6,10 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".View.CartFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_dark_background">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cart"
+            android:textAlignment="center"
+            android:textColor="@color/light_white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="27dp">
 
         <Button
             android:id="@+id/cartBuyButton"
@@ -19,7 +35,7 @@
             android:layout_marginStart="46dp"
             android:background="@drawable/round"
             android:text="Buy"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cartDeleteButton"
@@ -32,7 +48,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/round"
             android:text="Delete All"
-            android:textColor="#FFFFFF"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.069"
@@ -44,7 +60,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cartRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="685dp"
+        android:layout_height="653dp"
         android:layout_gravity="bottom"
         android:clipToPadding="false"
         android:paddingBottom="70dp" />

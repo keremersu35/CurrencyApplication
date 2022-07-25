@@ -43,7 +43,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:gravity="bottom"
-            android:textColor="@color/black" />
+            android:textColor="#736C6C" />
 
     </LinearLayout>
 

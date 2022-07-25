@@ -23,12 +23,18 @@ import com.example.currencyapplication.Model.Product;
 import com.example.currencyapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthSettings;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class PastOrdersFragment extends Fragment {
 
@@ -38,6 +44,7 @@ public class PastOrdersFragment extends Fragment {
     ArrayList<Product> productArrayList;
     FirebaseFirestore db;
     Product product;
+    FirebaseAuth mAuth;
 
     public PastOrdersFragment(Context context){
         this.context = context;
@@ -52,7 +59,7 @@ public class PastOrdersFragment extends Fragment {
         db = FirebaseFirestore.getInstance();
         context = getContext();
 
-        readDataFromFirebase();
+        //readDataFromFirebase(mAuth);
 
     }
     @Override
@@ -61,26 +68,30 @@ public class PastOrdersFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_past_orders, container, false);
     }
 
-    public void readDataFromFirebase(){
-        db.collection("products").orderBy("time", Query.Direction.DESCENDING)
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+    /*public void readDataFromFirebase(FirebaseAuth mAuth){
+        DocumentReference documentReference = db.collection("products").document(mAuth.getCurrentUser().getEmail());
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                System.out.println("name"+document.get("name").toString());
-                                product = new Product(document.get("name").toString(),Double.parseDouble(document.get("price").toString()),Integer.parseInt(document.get("number").toString()),document.get("time").toString());
-                                productArrayList.add(product);
-                                System.out.println(productArrayList.size());
-                            }
-                        } else {
-                            Log.w(TAG, "Error getting documents.", task.getException());
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {if(task.isSuccessful())
+                    {
+                        DocumentSnapshot snapshot = task.getResult();
+                        if(snapshot.exists())
+                        {
+                            Map<String, Object> data = snapshot.getData();
+
+                            String bio = (String) data.get("biography");
+                            String email = (String) data.get("useremail");
+                            String downloadUrl = (String) data.get("downloadurl");
+
+                            emailText2.setText(email.toString());
+                            bioText.setText(bio.toString());
+                            Picasso.get().load(downloadUrl).into(profilePhoto);
                         }
-                        handleResponse(context, productArrayList);
                     }
-                });
-    }
+                        handleResponse(context, productArrayList);
+            }
+        });
+    }*/
 
     private void handleResponse (Context context, ArrayList < Product > list){
         pastOrderRecyclerView.setLayoutManager(new LinearLayoutManager(context));

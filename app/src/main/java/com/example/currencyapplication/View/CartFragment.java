@@ -30,6 +30,8 @@ import com.example.currencyapplication.R;
 import com.example.currencyapplication.Service.ApiInterface;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
@@ -52,6 +54,7 @@ public class CartFragment extends Fragment {
     Button deleteButton, buyButton;
     FirebaseFirestore db;
     String formattedDate;
+    FirebaseAuth mAuth;
 
     public CartFragment(Context context){
         this.context = context;
@@ -69,10 +72,15 @@ public class CartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Hawk.init(context).build();
+        mAuth = FirebaseAuth.getInstance();
         productArrayList = new ArrayList<>();
         cartRecyclerView = view.findViewById(R.id.cartRecyclerView);
         deleteButton = view.findViewById(R.id.cartDeleteButton);
         buyButton = view.findViewById(R.id.cartBuyButton);
+        if(Hawk.get("cartProducts") == null){
+            productArrayList.clear();
+            handleResponse(context,productArrayList);
+        }
         productArrayList = Hawk.get("cartProducts");
         handleResponse(context,productArrayList);
         db = FirebaseFirestore.getInstance();
@@ -96,9 +104,10 @@ public class CartFragment extends Fragment {
 
                 Toast.makeText(context,"Purchase completed",Toast.LENGTH_SHORT).show();
 
-                for (Product product: productArrayList) {
-                    writeData(product.nameOfProduct,product.numberofProduct,product.priceOfProduct,formattedDate);
-                }
+      /*          for (Product product: productArrayList) {
+                    writeData(product.nameOfProduct,product.numberofProduct,product.priceOfProduct,formattedDate, mAuth);
+                }*/
+                writeData(productArrayList,mAuth);
                 productArrayList.clear();
                 Hawk.put("cartProducts",productArrayList);
                 cartAdapter.notifyDataSetChanged();
@@ -113,19 +122,17 @@ public class CartFragment extends Fragment {
         cartAdapter.notifyDataSetChanged();
     }
 
-    private void writeData(String name,int number, double price, String time){
+    private void writeData(ArrayList<Product> productList, FirebaseAuth mAuth){
 
-        Map<String, Object> product = new HashMap<>();
-        product.put("name", name);
-        product.put("number", number);
-        product.put("price", price);
-        product.put("time", time);
+        DocumentReference documentReference = db.collection("products").document(mAuth.getCurrentUser().getEmail().toString());
+        Map<String, ArrayList<Product>> products = new HashMap<>();
+        products.put("list", productList);
 
-        db.collection("products")
-                .add(product)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+        db.collection("products").document(mAuth.getCurrentUser().getEmail())
+                .set(products)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(DocumentReference documentReference) {
+                    public void onSuccess(Void unused) {
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                     }
                 })

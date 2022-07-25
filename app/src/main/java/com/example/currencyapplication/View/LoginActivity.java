@@ -49,7 +49,15 @@ public class LoginActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                firebaseLoginControl();
+
+                if (emailText.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "You did not enter a username", Toast.LENGTH_SHORT).show();
+                }
+                else if (passwordText.getText().toString().matches("")) {
+                    Toast.makeText(getApplicationContext(), "You did not enter a password", Toast.LENGTH_SHORT).show();
+                }else {
+                    firebaseLoginControl();
+                }
             }
         });
 

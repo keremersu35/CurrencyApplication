@@ -56,7 +56,7 @@ public class CurrencyDetailActivity extends AppCompatActivity {
                 number++;
                 numberString = Integer.toString(number);
                 numberOfProduct.setText(numberString);
-                String formattedString = String.format("%.1f",number*price);
+                String formattedString = String.format("%.2f",number*price);
                 lastPrice.setText("Price: "+formattedString);
             }
         });

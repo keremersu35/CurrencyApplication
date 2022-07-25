@@ -12,11 +12,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.currencyapplication.Model.Product;
 import com.example.currencyapplication.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.orhanobut.hawk.Hawk;
 
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     Context context;
     ArrayList<Product> arrayList;
+    FloatingActionButton supportButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,16 @@ public class MainActivity extends AppCompatActivity {
 
     bottomNavigationView = findViewById(R.id.bottom_navigation);
     context = getApplicationContext();
+    supportButton = findViewById(R.id.supportButton);
+
+    supportButton.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent intent = new Intent(getApplicationContext(), SupportActivity.class);
+            startActivity(intent);
+        }
+    });
+
     bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {

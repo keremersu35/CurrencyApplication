@@ -24,10 +24,10 @@
             android:id="@+id/pastOrderName"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:layout_marginStart="15dp"
+            android:layout_marginBottom="5dp"
             android:gravity="top"
-            android:textColor="@color/light_white"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:gravity="bottom"
-            android:textColor="@color/light_white" />
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -53,10 +53,10 @@
             android:id="@+id/pastOrderDate"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
             android:layout_marginBottom="5dp"
             android:gravity="top"
-            android:layout_marginEnd="15dp"
-            android:textColor="@color/light_white"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
             android:gravity="bottom"
-            android:textColor="@color/light_white" />
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

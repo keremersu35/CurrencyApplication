@@ -5,10 +5,26 @@
     android:layout_height="match_parent"
     tools:context=".View.PastOrdersFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_dark_background">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Past Orders"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@color/light_white"/>
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pastOrdersRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="70dp"
-        android:clipToPadding="false"/>
+        android:layout_height="702dp"
+        android:layout_gravity="bottom"
+        android:clipToPadding="false"
+        android:paddingBottom="70dp" />
 </FrameLayout>
