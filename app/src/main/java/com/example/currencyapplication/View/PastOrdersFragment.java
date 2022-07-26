@@ -43,7 +43,7 @@ public class PastOrdersFragment extends Fragment {
     PastOrdersAdapter pastOrderAdapter;
     ArrayList<Product> productArrayList;
     FirebaseFirestore db;
-    Product product;
+    ArrayList<ArrayList<Product>> productOfCart;
     FirebaseAuth mAuth;
 
     public PastOrdersFragment(Context context){
@@ -55,11 +55,13 @@ public class PastOrdersFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         productArrayList = new ArrayList<>();
+        productOfCart = new ArrayList<>();
         pastOrderRecyclerView = view.findViewById(R.id.pastOrdersRecyclerView);
         db = FirebaseFirestore.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         context = getContext();
 
-        //readDataFromFirebase(mAuth);
+        readDataFromFirebase(mAuth);
 
     }
     @Override
@@ -68,8 +70,8 @@ public class PastOrdersFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_past_orders, container, false);
     }
 
-    /*public void readDataFromFirebase(FirebaseAuth mAuth){
-        DocumentReference documentReference = db.collection("products").document(mAuth.getCurrentUser().getEmail());
+   public void readDataFromFirebase(FirebaseAuth mAuth){
+        DocumentReference documentReference = db.collection("products").document(mAuth.getCurrentUser().getUid());
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {if(task.isSuccessful())
@@ -77,21 +79,23 @@ public class PastOrdersFragment extends Fragment {
                         DocumentSnapshot snapshot = task.getResult();
                         if(snapshot.exists())
                         {
-                            Map<String, Object> data = snapshot.getData();
+                            Map<String, Object> products = snapshot.getData();
+                            System.out.println("AA "+products.toString());
 
-                            String bio = (String) data.get("biography");
-                            String email = (String) data.get("useremail");
-                            String downloadUrl = (String) data.get("downloadurl");
+                           /* String nameOfProduct = (String) products.get("nameOfProduct");
+                            int numberofProduct = (int) products.get("numberofProduct");
+                            double priceOfProduct = (double) products.get("priceOfProduct");
+                            String time = (String) products.get("timestamp");
 
-                            emailText2.setText(email.toString());
-                            bioText.setText(bio.toString());
-                            Picasso.get().load(downloadUrl).into(profilePhoto);
+                            productArrayList.add(new Product(nameOfProduct, priceOfProduct, numberofProduct, time));
+                            System.out.println("bruh"+productArrayList);*/
+
                         }
                     }
-                        handleResponse(context, productArrayList);
+                        //handleResponse(context, productArrayList);
             }
         });
-    }*/
+    }
 
     private void handleResponse (Context context, ArrayList < Product > list){
         pastOrderRecyclerView.setLayoutManager(new LinearLayoutManager(context));

@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.currencyapplication.Model.Product;
@@ -20,6 +21,7 @@ public class PastOrdersAdapter extends RecyclerView.Adapter<PastOrdersAdapter.Vi
 
     private ArrayList<Product> productList;
     Context context;
+    private ArrayList<Product> productListToItem;
 
     public PastOrdersAdapter(Context context, ArrayList<Product> productList) {
         this.productList = productList;
@@ -31,20 +33,23 @@ public class PastOrdersAdapter extends RecyclerView.Adapter<PastOrdersAdapter.Vi
     public PastOrdersAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.past_orders_row, parent, false);
+        View view = layoutInflater.inflate(R.layout.past_orders_list_item, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PastOrdersAdapter.ViewHolder holder, int position) {
 
+        /*for(Product product: productList){
+            if(product.time)
+        }*/
         Product product = productList.get(position);
-        holder.nameOfProduct.setText(product.nameOfProduct);
-        holder.numberOfProduct.setText(Integer.toString(product.numberofProduct)+" Adet");
-        String formattedPrice = String.format("%.1f",product.priceOfProduct);
-        holder.priceOfProduct.setText(formattedPrice+" TL");
-        holder.timeOfProdduct.setText(product.time);
+        holder.pastOrderDate.setText(product.time);
 
+        PastOrdersItemAdapter adapterMember = new PastOrdersItemAdapter(context, productList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        holder.pastOrderItemRv.setLayoutManager(linearLayoutManager);
+        holder.pastOrderItemRv.setAdapter(adapterMember);
     }
     @Override
     public int getItemCount() {
@@ -53,14 +58,13 @@ public class PastOrdersAdapter extends RecyclerView.Adapter<PastOrdersAdapter.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView nameOfProduct,numberOfProduct,priceOfProduct,timeOfProdduct;
+        TextView pastOrderDate;
+        RecyclerView pastOrderItemRv;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            nameOfProduct = itemView.findViewById(R.id.pastOrderName);
-            numberOfProduct = itemView.findViewById(R.id.pastOrderNumber);
-            priceOfProduct = itemView.findViewById(R.id.pastOrderPrice);
-            timeOfProdduct = itemView.findViewById(R.id.pastOrderDate);
+                pastOrderDate = itemView.findViewById(R.id.pastOrderDate);
+                pastOrderItemRv = itemView.findViewById(R.id.pastOrderItemRv);
         }
     }
 }

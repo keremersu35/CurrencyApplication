@@ -86,7 +86,6 @@ public class CurrencyFragment extends Fragment {
         else if(Hawk.get("date6").toString().equals(LocalDate.now().toString())) {
             results = Hawk.get("currencies");
             handleResponse(context, results);
-            p.dismiss();
 
         }else{
             fetchData(client);
@@ -106,6 +105,7 @@ public class CurrencyFragment extends Fragment {
         Hawk.put("currencies", results);
         Hawk.put("date6", LocalDate.now().toString());
     }
+
 
     private void fetchData(@NonNull ApiInterface client){
         Call<CurrencyMain> callResponse = client.getCurrency("application/json",key);

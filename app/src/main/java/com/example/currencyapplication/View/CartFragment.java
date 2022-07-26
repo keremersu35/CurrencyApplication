@@ -33,7 +33,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.orhanobut.hawk.Hawk;
@@ -44,6 +46,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class CartFragment extends Fragment {
 
@@ -104,10 +107,10 @@ public class CartFragment extends Fragment {
 
                 Toast.makeText(context,"Purchase completed",Toast.LENGTH_SHORT).show();
 
-      /*          for (Product product: productArrayList) {
-                    writeData(product.nameOfProduct,product.numberofProduct,product.priceOfProduct,formattedDate, mAuth);
-                }*/
-                writeData(productArrayList,mAuth);
+                for (Product product: productArrayList) {
+                    product.time = formattedDate;
+                }
+                writeData(productArrayList, mAuth);
                 productArrayList.clear();
                 Hawk.put("cartProducts",productArrayList);
                 cartAdapter.notifyDataSetChanged();
@@ -122,14 +125,14 @@ public class CartFragment extends Fragment {
         cartAdapter.notifyDataSetChanged();
     }
 
-    private void writeData(ArrayList<Product> productList, FirebaseAuth mAuth){
+    private void writeData(ArrayList<Product> list,FirebaseAuth mAuth){
 
-        DocumentReference documentReference = db.collection("products").document(mAuth.getCurrentUser().getEmail().toString());
-        Map<String, ArrayList<Product>> products = new HashMap<>();
-        products.put("list", productList);
+        DocumentReference documentReference = db.collection("products").document(mAuth.getCurrentUser().getUid());
+        String uniqueId = UUID.randomUUID().toString();
+        Map<String, Object> products = new HashMap<>();
+        products.put(uniqueId, list);
 
-        db.collection("products").document(mAuth.getCurrentUser().getEmail())
-                .set(products)
+        documentReference.set(products, SetOptions.merge())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
@@ -143,4 +146,28 @@ public class CartFragment extends Fragment {
                     }
                 });
     }
+
+    /*private void writeData(ArrayList<Product> list,FirebaseAuth mAuth){
+
+        DocumentReference documentReference = db.collection("products").document(mAuth.getCurrentUser().getEmail().toString());
+        Map<String, Object> products = new HashMap<>();
+        products.put("list", list);
+
+        db.collection("products").document(mAuth.getCurrentUser().getEmail())
+                .update({
+                "list":  FieldValue.arrayUnion({"fourth element": "Sam"})
+                });
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w(TAG, "Error adding document", e);
+                    }
+                });
+    }*/
 }

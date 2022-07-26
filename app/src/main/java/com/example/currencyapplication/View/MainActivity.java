@@ -23,6 +23,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.orhanobut.hawk.Hawk;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 

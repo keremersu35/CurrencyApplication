@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/edit_text.xml" value="0.2225" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/ic_shopping_cart.xml" value="0.2225" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/item_selector.xml" value="0.117" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/loading_spinner.xml" value="0.2225" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/menu.xml" value="0.3385" />
@@ -26,6 +27,7 @@
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/fragment_gold.xml" value="0.2545289855072464" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/fragment_past_orders.xml" value="0.2545289855072464" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/navigation_bar.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/past_orders_list_item.xml" value="0.3374094202898551" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/past_orders_row.xml" value="0.2210144927536232" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/menu/menu.xml" value="0.365625" />
       </map>

@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".View.SupportActivity">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="212dp"
+        android:layout_height="305dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/currencies"
+        tools:layout_editor_absoluteY="27dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
