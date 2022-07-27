@@ -39,9 +39,8 @@ public class PastOrdersItemAdapter extends RecyclerView.Adapter<PastOrdersItemAd
         Product product = productList.get(position);
         holder.nameOfProduct.setText(product.nameOfProduct);
         holder.numberOfProduct.setText(Integer.toString(product.numberofProduct) + " Pcs");
-        String formattedPrice = String.format("%.1f", product.priceOfProduct);
+        String formattedPrice = String.format("%.2f", product.priceOfProduct);
         holder.priceOfProduct.setText(formattedPrice + " TL");
-
     }
 
     @Override

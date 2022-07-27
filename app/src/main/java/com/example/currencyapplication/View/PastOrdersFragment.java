@@ -1,39 +1,36 @@
 package com.example.currencyapplication.View;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.example.currencyapplication.Adapter.CartAdapter;
 import com.example.currencyapplication.Adapter.PastOrdersAdapter;
 import com.example.currencyapplication.Model.Product;
 import com.example.currencyapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthSettings;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Map;
 
 public class PastOrdersFragment extends Fragment {
@@ -41,10 +38,12 @@ public class PastOrdersFragment extends Fragment {
     RecyclerView pastOrderRecyclerView;
     Context context;
     PastOrdersAdapter pastOrderAdapter;
-    ArrayList<Product> productArrayList;
     FirebaseFirestore db;
-    ArrayList<ArrayList<Product>> productOfCart;
+    ArrayList<ArrayList<Product>> ListOfCart;
+    ArrayList<Product> ListOfProduct;
+    Product product;
     FirebaseAuth mAuth;
+    Map<String, Object> cartlar;
 
     public PastOrdersFragment(Context context){
         this.context = context;
@@ -54,8 +53,8 @@ public class PastOrdersFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        productArrayList = new ArrayList<>();
-        productOfCart = new ArrayList<>();
+        ListOfCart = new ArrayList<>();
+        ListOfProduct = new ArrayList<>();
         pastOrderRecyclerView = view.findViewById(R.id.pastOrdersRecyclerView);
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -80,28 +79,39 @@ public class PastOrdersFragment extends Fragment {
                         if(snapshot.exists())
                         {
                             Map<String, Object> products = snapshot.getData();
-                            System.out.println("AA "+products.toString());
-
-                           /* String nameOfProduct = (String) products.get("nameOfProduct");
-                            int numberofProduct = (int) products.get("numberofProduct");
-                            double priceOfProduct = (double) products.get("priceOfProduct");
-                            String time = (String) products.get("timestamp");
-
-                            productArrayList.add(new Product(nameOfProduct, priceOfProduct, numberofProduct, time));
-                            System.out.println("bruh"+productArrayList);*/
-
+                            for (Object object: products.values()) {
+                                ArrayList<?> objeler =  (ArrayList<?>) object;
+                                for (Object obje: objeler) {
+                                    cartlar = (HashMap) obje;
+                                    product = new Product(cartlar.get("nameOfProduct").toString(), (Double) cartlar.get("priceOfProduct"), ((Long) cartlar.get("numberofProduct")).intValue(),cartlar.get("time").toString());
+                                    ListOfProduct.add(product);
+                                }
+                                ListOfCart.add(ListOfProduct);
+                                ListOfProduct = new ArrayList<Product>();
+                            }
+                            Collections.sort(ListOfCart, new Comparator<ArrayList<Product>>() {
+                                @RequiresApi(api = Build.VERSION_CODES.O)
+                                @Override
+                                public int compare(ArrayList<Product> o1, ArrayList<Product> o2) {
+                                    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+                                    return LocalDateTime.parse(o1.get(0).time, myFormatObj).compareTo(LocalDateTime.parse(o2.get(0).time, myFormatObj));
+                                }
+                            });
+                            Collections.reverse(ListOfCart);
                         }
                     }
-                        //handleResponse(context, productArrayList);
+                        handleResponse(context, ListOfCart);
             }
         });
     }
 
-    private void handleResponse (Context context, ArrayList < Product > list){
+    private void handleResponse (Context context, ArrayList<ArrayList<Product>> list){
         pastOrderRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         pastOrderAdapter = new PastOrdersAdapter(context, list);
         pastOrderRecyclerView.setAdapter(pastOrderAdapter);
         pastOrderAdapter.notifyDataSetChanged();
         }
     }
+
+
 

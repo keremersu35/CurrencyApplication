@@ -3,9 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="16dp"
+    android:id="@+id/cardview"
+    android:layout_height="80dp"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="5dp"
     app:cardElevation="8dp">
 
 
@@ -70,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
+            android:visibility="invisible"
             android:padding="4dp" />
 
     </LinearLayout>
