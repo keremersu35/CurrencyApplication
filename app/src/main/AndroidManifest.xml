@@ -32,9 +32,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".View.CurrencyDetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".View.MainActivity"
             android:exported="false"></activity>
     </application>

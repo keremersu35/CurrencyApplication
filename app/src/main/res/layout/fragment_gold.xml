@@ -24,6 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="705dp"
         android:layout_gravity="bottom"
+        android:background="#F5F9FC"
         android:clipToPadding="false"
         android:paddingBottom="70dp" />
 </FrameLayout>

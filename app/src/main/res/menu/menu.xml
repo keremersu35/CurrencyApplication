@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/nav_currency"
-        android:icon="@drawable/currencies"
+        android:icon="@drawable/money"
         android:title="Currency" />
 
     <item android:id="@+id/nav_gold"
-        android:icon="@drawable/gold"
+        android:icon="@drawable/gold_ingots"
         android:title="Gold" />
 
     <item android:id="@+id/nav_cart"

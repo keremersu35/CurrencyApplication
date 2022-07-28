@@ -11,6 +11,7 @@
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/loading_spinner.xml" value="0.2225" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/menu.xml" value="0.3385" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round.xml" value="0.201" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round_button.xml" value="0.357" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round_corner.xml" value="0.117" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_cart.xml" value="0.2554347826086957" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_currency_detail.xml" value="0.33" />
@@ -22,6 +23,7 @@
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_support.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/cart_row.xml" value="0.365625" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/currency_item.xml" value="0.3374094202898551" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/currency_recycler_row.xml" value="0.33" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/deneme.xml" value="0.3374094202898551" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/fragment_cart.xml" value="0.5" />
@@ -31,6 +33,7 @@
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/navigation_bar.xml" value="0.271286231884058" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/past_orders_list_item.xml" value="0.3374094202898551" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/past_orders_row.xml" value="0.2210144927536232" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/support_user_row.xml" value="0.365625" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/menu/menu.xml" value="0.365625" />
       </map>
     </option>
@@ -40,5 +43,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.36666666666666664" />
+      </ProjectState>
+    </option>
   </component>
 </project>
