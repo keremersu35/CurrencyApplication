@@ -10,10 +10,11 @@
         android:src="@drawable/profile_user" />
 
     <TextView
-        android:layout_width="300dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="16dp"
+        android:id="@+id/userEmail"
         android:textStyle="bold"
         android:text="Personasdadadasdadasdasd "
         android:layout_marginStart="15dp"/>
