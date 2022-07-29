@@ -34,7 +34,8 @@ public class SupportActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
     static boolean isAuth = false;
     User user;
-    ArrayList<User> users;
+    ArrayList<User> authUsers;
+    ArrayList<User> unauthUsers;
     SupportAdapter supportAdapter;
     RecyclerView usersRv;
     Context context;
@@ -46,7 +47,8 @@ public class SupportActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
-        users = new ArrayList<>();
+        authUsers = new ArrayList<>();
+        unauthUsers = new ArrayList<>();
         usersRv = findViewById(R.id.supportRecyclerView);
         context = getApplicationContext();
 
@@ -75,10 +77,29 @@ public class SupportActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if(task.isSuccessful()){
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    user = new User(document.get("userEmail").toString(), document.get("userUId").toString(),document.get("userName").toString());
-                                    users.add(user);
+                                    user = new User(document.get("userEmail").toString(), document.get("userUId").toString(),document.get("userName").toString(),isAuth);
+                                    authUsers.add(user);
                                 }
-                                handleResponse(context,users);
+                                handleResponse(context,authUsers);
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            System.out.println(e.toString());
+                        }
+                    });
+        }else{
+            db.collection("users").
+                    get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if(task.isSuccessful()){
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    user = new User(document.get("userEmail").toString(), document.get("userUId").toString(),isAuth);
+                                    unauthUsers.add(user);
+                                }
+                                handleResponse(context,unauthUsers);
                             }
                         }
                     }).addOnFailureListener(new OnFailureListener() {

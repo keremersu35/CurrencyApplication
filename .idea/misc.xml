@@ -13,7 +13,10 @@
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round.xml" value="0.201" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round_button.xml" value="0.357" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round_corner.xml" value="0.117" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round_send_button.xml" value="0.2225" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/drawable/round_speech_box.xml" value="0.357" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_cart.xml" value="0.2554347826086957" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_communication.xml" value="0.2210144927536232" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_currency_detail.xml" value="0.33" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_currency_list.xml" value="0.358695652173913" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/activity_currency_list2.xml" value="0.17147922998986828" />
@@ -33,6 +36,7 @@
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/navigation_bar.xml" value="0.271286231884058" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/past_orders_list_item.xml" value="0.3374094202898551" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/past_orders_row.xml" value="0.2210144927536232" />
+        <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/speech_bubble.xml" value="0.25" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/layout/support_user_row.xml" value="0.365625" />
         <entry key="..\:/Users/kerem/AndroidStudioProjects/CurrencyApplication/app/src/main/res/menu/menu.xml" value="0.365625" />
       </map>
